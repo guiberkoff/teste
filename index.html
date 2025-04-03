@@ -1,234 +1,218 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Financeiro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .saldo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .saldo h2 {
+            color: #2ecc71;
+            margin: 0;
+        }
+
+        .form-section {
+            margin-bottom: 20px;
+        }
+
+        input, select, button {
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .export-btn {
+            background-color: #27ae60;
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        .export-btn:hover {
+            background-color: #219653;
+        }
+
+        .historico {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .coluna {
+            width: 48%;
+        }
+
+        .transacao {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        .entrada {
+            color: #2ecc71;
+        }
+
+        .saida {
+            color: #e74c3c;
+        }
+
+        .data {
+            color: #666;
+            font-size: 12px;
+        }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="pt-br"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Controle Financeiro&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: Arial, sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 800px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f0f0f0;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.container {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 2px 4px rgba(0,0,0,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.saldo {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.saldo h2 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #2ecc71;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.form-section {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>input, select, button {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 5px 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #ddd;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>button {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #3498db;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>button:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #2980b9;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.export-btn {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #27ae60;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 10px 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.export-btn:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #219653;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.historico {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: space-between;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.coluna {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 48%;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.transacao {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid #eee;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 14px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.entrada {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #2ecc71;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.saida {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #e74c3c;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.data {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #666;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="saldo"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1&gt;Controle Financeiro&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;R$ 0,00&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="form-section"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="number" id="valor" placeholder="Valor" step="0.01"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;select id="tipo"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value="entrada"&gt;Entrada&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value="saida"&gt;Saída&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/select&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="descricao" placeholder="Descrição"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="adicionarTransacao()"&gt;Adicionar&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="export-btn" onclick="exportarExcel()"&gt;Exportar para Excel&lt;/button&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="historico"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="coluna" id="entradas"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3&gt;Entradas&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="coluna" id="saidas"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3&gt;Saídas&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>let saldo = 0;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>let transacoes = [];</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const entradas = document.getElementById('entradas');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const saidas = document.getElementById('saidas');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const saldoDisplay = document.querySelector('.saldo h2');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function formatarData() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const data = new Date();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>return data.toLocaleString('pt-BR', {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>day: '2-digit',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>month: '2-digit',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>year: 'numeric',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>hour: '2-digit',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>minute: '2-digit'</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function atualizarSaldo() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>saldoDisplay.textContent = `R$ ${saldo.toFixed(2).replace('.', ',')}`;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>saldoDisplay.style.color = saldo &gt;= 0 ? '#2ecc71' : '#e74c3c';</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function adicionarTransacao() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const valor = parseFloat(document.getElementById('valor').value);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const tipo = document.getElementById('tipo').value;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const descricao = document.getElementById('descricao').value;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const data = formatarData();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (!valor || !descricao) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>alert('Por favor, preencha todos os campos!');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Atualizar saldo</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (tipo === 'entrada') {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>saldo += valor;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>saldo -= valor;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Criar objeto da transação</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const transacaoObj = { tipo, valor, descricao, data };</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transacoes.push(transacaoObj);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Criar elemento da transação</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const transacao = document.createElement('div');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transacao.classList.add('transacao');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transacao.classList.add(tipo);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transacao.innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">                </span>${descricao}: R$ ${valor.toFixed(2).replace('.', ',')}</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="data"&gt;${data}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Adicionar na coluna correspondente</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (tipo === 'entrada') {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>entradas.appendChild(transacao);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>saidas.appendChild(transacao);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>atualizarSaldo();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Limpar formulário</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('valor').value = '';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('descricao').value = '';</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function exportarExcel() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (transacoes.length === 0) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>alert('Nenhuma transação para exportar!');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Criar conteúdo CSV</p>
-<p class="p1"><span class="Apple-converted-space">            </span>let csvContent = "data:text/csv;charset=utf-8,";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>csvContent += "Tipo,Descrição,Valor,Data\n";</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>transacoes.forEach(transacao =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const linha = `${transacao.tipo},${transacao.descricao},${transacao.valor},${transacao.data}`;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>csvContent += linha + "\n";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Criar e baixar o arquivo</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const encodedUri = encodeURI(csvContent);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const link = document.createElement("a");</p>
-<p class="p1"><span class="Apple-converted-space">            </span>link.setAttribute("href", encodedUri);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>link.setAttribute("download", "controle_financeiro.csv");</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.body.appendChild(link);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>link.click();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.body.removeChild(link);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+    <div class="container">
+        <div class="saldo">
+            <h1>Controle Financeiro</h1>
+            <h2>R$ 0,00</h2>
+        </div>
+
+        <div class="form-section">
+            <input type="number" id="valor" placeholder="Valor" step="0.01">
+            <select id="tipo">
+                <option value="entrada">Entrada</option>
+                <option value="saida">Saída</option>
+            </select>
+            <input type="text" id="descricao" placeholder="Descrição">
+            <button onclick="adicionarTransacao()">Adicionar</button>
+        </div>
+
+        <button class="export-btn" onclick="exportarExcel()">Exportar para Excel</button>
+
+        <div class="historico">
+            <div class="coluna" id="entradas">
+                <h3>Entradas</h3>
+            </div>
+            <div class="coluna" id="saidas">
+                <h3>Saídas</h3>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let saldo = 0;
+        let transacoes = [];
+        const entradas = document.getElementById('entradas');
+        const saidas = document.getElementById('saidas');
+        const saldoDisplay = document.querySelector('.saldo h2');
+
+        function formatarData() {
+            const data = new Date();
+            return data.toLocaleString('pt-BR', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        function atualizarSaldo() {
+            saldoDisplay.textContent = `R$ ${saldo.toFixed(2).replace('.', ',')}`;
+            saldoDisplay.style.color = saldo >= 0 ? '#2ecc71' : '#e74c3c';
+        }
+
+        function adicionarTransacao() {
+            const valor = parseFloat(document.getElementById('valor').value);
+            const tipo = document.getElementById('tipo').value;
+            const descricao = document.getElementById('descricao').value;
+            const data = formatarData();
+
+            if (!valor || !descricao) {
+                alert('Por favor, preencha todos os campos!');
+                return;
+            }
+
+            // Atualizar saldo
+            if (tipo === 'entrada') {
+                saldo += valor;
+            } else {
+                saldo -= valor;
+            }
+
+            // Criar objeto da transação
+            const transacaoObj = { tipo, valor, descricao, data };
+            transacoes.push(transacaoObj);
+
+            // Criar elemento da transação
+            const transacao = document.createElement('div');
+            transacao.classList.add('transacao');
+            transacao.classList.add(tipo);
+            transacao.innerHTML = `
+                ${descricao}: R$ ${valor.toFixed(2).replace('.', ',')}
+                <div class="data">${data}</div>
+            `;
+
+            // Adicionar na coluna correspondente
+            if (tipo === 'entrada') {
+                entradas.appendChild(transacao);
+            } else {
+                saidas.appendChild(transacao);
+            }
+
+            atualizarSaldo();
+
+            // Limpar formulário
+            document.getElementById('valor').value = '';
+            document.getElementById('descricao').value = '';
+        }
+
+        function exportarExcel() {
+            if (transacoes.length === 0) {
+                alert('Nenhuma transação para exportar!');
+                return;
+            }
+
+            // Criar conteúdo CSV
+            let csvContent = "data:text/csv;charset=utf-8,";
+            csvContent += "Tipo,Descrição,Valor,Data\n";
+
+            transacoes.forEach(transacao => {
+                const linha = `${transacao.tipo},${transacao.descricao},${transacao.valor},${transacao.data}`;
+                csvContent += linha + "\n";
+            });
+
+            // Criar e baixar o arquivo
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "controle_financeiro.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
 </body>
 </html>
